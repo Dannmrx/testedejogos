@@ -1,86 +1,194 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Lista de testes - 7K</title>
-  <style>
-    body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
-    h1 { color: #333; }
-    ul { list-style: none; padding: 0; }
-    li { margin: 8px 0; }
-    a { color: #007bff; text-decoration: none; font-size: 17px; padding: 5px 10px; border-radius: 5px; display: inline-block; }
-    a:hover { background-color: #e0e0e0; }
-    .highlight { background-color: yellow; font-weight: bold; }
-  </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const links = document.querySelectorAll('a');
-      const lastVisited = localStorage.getItem('lastVisited');
-
-      links.forEach(link => {
-        link.addEventListener('click', () => {
-          localStorage.setItem('lastVisited', link.href);
-        });
-
-        if (link.href === lastVisited) {
-          link.classList.add('highlight');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos de Cassino - Multiplataforma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
         }
-      });
-    });
-  </script>
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .platform-selector {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .platform-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+            min-width: 120px;
+        }
+        .platform-btn.active {
+            background-color: #e74c3c;
+            font-weight: bold;
+            transform: scale(1.05);
+        }
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .game-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .game-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .game-btn.active {
+            background-color: #e74c3c;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(231, 76, 60, 0.6);
+        }
+        .game-btn.active::after {
+            content: "✓";
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #27ae60;
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            z-index: 2;
+        }
+    </style>
 </head>
 <body>
-  <h1>Jogos para testar (7K.bet)</h1>
-  <ul>
-    <li><a href="https://7k.bet.br/games/pgsoft/fortune-rabbit">Fortune Rabbit</a></li>
-    <li><a href="https://7k.bet.br/games/spribe/aviator">Aviator</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/fortune-tiger">Fortune Tiger</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/fortune-dragon">Fortune Dragon</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/fortune-ox">Fortune Ox</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/bac-bo">Bac Bo</a></li>
-    <li><a href="https://7k.bet.br/games/spribe/mines">Mines</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/fortune-snake">Fortune Snake</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/tigre-sortudo">Tigre Sortudo</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/roleta-brasileira">Roleta Brasileira</a></li>
-    <li><a href="https://7k.bet.br/games/spribe/aviator">Aviator Crash</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/fortune-mouse">Fortune Mouse</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/roleta-ao-vivo">Roleta Ao Vivo</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/touro-sortudo">Touro Sortudo</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/gates-of-olympus">Gates of Olympus</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/pinata-wins">Pinata Wins</a></li>
-    <li><a href="https://7k.bet.br/games/smartsoft/jetx">JetX</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/cash-mania">Cash Mania</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/dragon-hatch">Dragon Hatch</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/wild-bounty-showdown">Wild Bounty Showdown</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/jokers-jewels">Joker's Jewels</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/ratinho-sortudo">Ratinho Sortudo</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/spaceman">Live - Spaceman</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/tigre-sortudo-1000">Tigre Sortudo 1000</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/auto-roulette-vip">Auto-Roulette VIP</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/sweet-bonanza">Sweet Bonanza</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/crazy-time">Crazy Time</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/gates-of-olympus-1000">Gates of Olympus 1000</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/immersive-roulette">Immersive Roulette</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/wild-bandito">Wild Bandito</a></li>
-    <li><a href="https://7k.bet.br/games/tada/lucky-jaguar">Lucky Jaguar</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/football-studio">Football Studio</a></li>
-    <li><a href="https://7k.bet.br/games/playtech/adventures-beyond-wonderland-live">Adventures Beyond Wonderland Live</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/big-bass-splash">Big Bass Splash</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/sweet-bonanza-1000">Sweet Bonanza 1000</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/midas-fortune">Midas Fortune</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/xxxtreme-lightning-roulette">XXXtreme Lightning Roulette</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/master-joker">Master Joker</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/double-fortune">Double Fortune</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/lucky-neko">Lucky Neko</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/sugar-rush-1000">Sugar Rush 1000</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/super-7s">Super 7s</a></li>
-    <li><a href="https://7k.bet.br/games/spribe/hilo">Hilo</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/gates-of-olympus-super-scatter">Gates of Olympus Super Scatter</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/diamond-strike">Diamond Strike</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/live-mega-wheel">Live - Mega Wheel</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/dragon-hatch-2">Dragon Hatch 2</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/the-great-icescape">The Great Icescape</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/dragon-tiger-luck">Dragon Tiger Luck</a></li>
-  </ul>
+    <h1>Jogos de Cassino</h1>
+    
+    <!-- BOTÕES REORDENADOS (7K > CASSINO > VERA) -->
+    <div class="platform-selector">
+        <button class="platform-btn active" onclick="changePlatform('7k')">7k.bet.br</button>
+        <button class="platform-btn" onclick="changePlatform('cassino')">Cassino.bet.br</button>
+        <button class="platform-btn" onclick="changePlatform('vera')">Vera.bet.br</button>
+    </div>
+    
+    <div class="game-grid">
+        <!-- LISTA COMPLETA DE TODOS OS 46 JOGOS -->
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/fortune-rabbit" data-vera="https://vera.bet.br/games/pgsoft/fortune-rabbit" data-7k="https://7k.bet.br/games/pgsoft/fortune-rabbit">Fortune Rabbit</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/spribe/aviator" data-vera="https://vera.bet.br/games/spribe/aviator" data-7k="https://7k.bet.br/games/spribe/aviator">Aviator</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/fortune-tiger" data-vera="https://vera.bet.br/games/pgsoft/fortune-tiger" data-7k="https://7k.bet.br/games/pgsoft/fortune-tiger">Fortune Tiger</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/fortune-dragon" data-vera="https://vera.bet.br/games/pgsoft/fortune-dragon" data-7k="https://7k.bet.br/games/pgsoft/fortune-dragon">Fortune Dragon</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/fortune-ox" data-vera="https://vera.bet.br/games/pgsoft/fortune-ox" data-7k="https://7k.bet.br/games/pgsoft/fortune-ox">Fortune Ox</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/bac-bo" data-vera="https://vera.bet.br/games/evolution/bac-bo" data-7k="https://7k.bet.br/games/evolution/bac-bo">Bac Bo</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/spribe/mines" data-vera="https://vera.bet.br/games/spribe/mines" data-7k="https://7k.bet.br/games/spribe/mines">Mines</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/fortune-snake" data-vera="https://vera.bet.br/games/pgsoft/fortune-snake" data-7k="https://7k.bet.br/games/pgsoft/fortune-snake">Fortune Snake</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/tigre-sortudo" data-vera="https://vera.bet.br/games/pragmaticplay/tigre-sortudo" data-7k="https://7k.bet.br/games/pragmaticplay/tigre-sortudo">Tigre Sortudo</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/playtech/roleta-brasileira" data-vera="https://vera.bet.br/games/playtech/roleta-brasileira" data-7k="https://7k.bet.br/games/playtech/roleta-brasileira">Roleta Brasileira Playtech</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/banana/aviator-crash" data-vera="https://vera.bet.br/games/banana/aviator-crash" data-7k="https://7k.bet.br/games/banana/aviator-crash">Aviator Crash</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/fortune-mouse" data-vera="https://vera.bet.br/games/pgsoft/fortune-mouse" data-7k="https://7k.bet.br/games/pgsoft/fortune-mouse">Fortune Mouse</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/roleta-ao-vivo" data-vera="https://vera.bet.br/games/evolution/roleta-ao-vivo" data-7k="https://7k.bet.br/games/evolution/roleta-ao-vivo">Roleta Ao Vivo</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/touro-sortudo" data-vera="https://vera.bet.br/games/pragmaticplay/touro-sortudo" data-7k="https://7k.bet.br/games/pragmaticplay/touro-sortudo">Touro Sortudo</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/gates-of-olympus" data-vera="https://vera.bet.br/games/pragmaticplay/gates-of-olympus" data-7k="https://7k.bet.br/games/pragmaticplay/gates-of-olympus">Gates of Olympus</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/pinata-wins" data-vera="https://vera.bet.br/games/pgsoft/pinata-wins" data-7k="https://7k.bet.br/games/pgsoft/pinata-wins">Pinata Wins</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/smartsoft/jetx" data-vera="https://vera.bet.br/games/smartsoft/jetx" data-7k="https://7k.bet.br/games/smartsoft/jetx">JetX</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/cash-mania" data-vera="https://vera.bet.br/games/pgsoft/cash-mania" data-7k="https://7k.bet.br/games/pgsoft/cash-mania">Cash Mania</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/roleta-brasileira" data-vera="https://vera.bet.br/games/pragmaticplay/roleta-brasileira" data-7k="https://7k.bet.br/games/pragmaticplay/roleta-brasileira">Roleta Brasileira Pragmatic</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/dragon-hatch" data-vera="https://vera.bet.br/games/pgsoft/dragon-hatch" data-7k="https://7k.bet.br/games/pgsoft/dragon-hatch">Dragon Hatch</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/wild-bounty-showdown" data-vera="https://vera.bet.br/games/pgsoft/wild-bounty-showdown" data-7k="https://7k.bet.br/games/pgsoft/wild-bounty-showdown">Wild Bounty Showdown</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/jokers-jewels" data-vera="https://vera.bet.br/games/pragmaticplay/jokers-jewels" data-7k="https://7k.bet.br/games/pragmaticplay/jokers-jewels">Joker's Jewels</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/ratinho-sortudo" data-vera="https://vera.bet.br/games/pragmaticplay/ratinho-sortudo" data-7k="https://7k.bet.br/games/pragmaticplay/ratinho-sortudo">Ratinho Sortudo</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/live-spaceman" data-vera="https://vera.bet.br/games/pragmaticplay/live-spaceman" data-7k="https://7k.bet.br/games/pragmaticplay/spaceman">Live - Spaceman</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/tigre-sortudo-1000" data-vera="https://vera.bet.br/games/pragmaticplay/tigre-sortudo-1000" data-7k="https://7k.bet.br/games/pragmaticplay/tigre-sortudo-1000">Tigre Sortudo 1000</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/auto-roulette-vip" data-vera="https://vera.bet.br/games/evolution/auto-roulette-vip" data-7k="https://7k.bet.br/games/evolution/auto-roulette-vip">Auto-Roulette VIP</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/sweet-bonanza" data-vera="https://vera.bet.br/games/pragmaticplay/sweet-bonanza" data-7k="https://7k.bet.br/games/pragmaticplay/sweet-bonanza">Sweet Bonanza</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/crazy-time" data-vera="https://vera.bet.br/games/evolution/crazy-time" data-7k="https://7k.bet.br/games/evolution/crazy-time">Crazy Time</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/gates-of-olympus-1000" data-vera="https://vera.bet.br/games/pragmaticplay/gates-of-olympus-1000" data-7k="https://7k.bet.br/games/pragmaticplay/gates-of-olympus-1000">Gates of Olympus 1000</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/immersive-roulette" data-vera="https://vera.bet.br/games/evolution/immersive-roulette" data-7k="https://7k.bet.br/games/evolution/immersive-roulette">Immersive Roulette</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/wild-bandito" data-vera="https://vera.bet.br/games/pgsoft/wild-bandito" data-7k="https://7k.bet.br/games/pgsoft/wild-bandito">Wild Bandito</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/tada/lucky-jaguar" data-vera="https://vera.bet.br/games/tada/lucky-jaguar" data-7k="https://7k.bet.br/games/tada/lucky-jaguar">Lucky Jaguar</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/football-studio" data-vera="https://vera.bet.br/games/evolution/football-studio" data-7k="https://7k.bet.br/games/evolution/football-studio">Football Studio</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/playtech/adventures-beyond-wonderland-live" data-vera="https://vera.bet.br/games/playtech/adventures-beyond-wonderland-live" data-7k="https://7k.bet.br/games/playtech/adventures-beyond-wonderland-live">Beyond Wonderland</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/big-bass-splash" data-vera="https://vera.bet.br/games/pragmaticplay/big-bass-splash" data-7k="https://7k.bet.br/games/pragmaticplay/big-bass-splash">Big Bass Splash</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/sweet-bonanza-1000" data-vera="https://vera.bet.br/games/pragmaticplay/sweet-bonanza-1000" data-7k="https://7k.bet.br/games/pragmaticplay/sweet-bonanza-1000">Sweet Bonanza 1000</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/midas-fortune" data-vera="https://vera.bet.br/games/pgsoft/midas-fortune" data-7k="https://7k.bet.br/games/pgsoft/midas-fortune">Midas Fortune</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/xxxtreme-lightning-roulette" data-vera="https://vera.bet.br/games/evolution/xxxtreme-lightning-roulette" data-7k="https://7k.bet.br/games/evolution/xxxtreme-lightning-roulette">Lightning Roulette</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/master-joker" data-vera="https://vera.bet.br/games/pragmaticplay/master-joker" data-7k="https://7k.bet.br/games/pragmaticplay/master-joker">Master Joker</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/double-fortune" data-vera="https://vera.bet.br/games/pgsoft/double-fortune" data-7k="https://7k.bet.br/games/pgsoft/double-fortune">Double Fortune</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/lucky-neko" data-vera="https://vera.bet.br/games/pgsoft/lucky-neko" data-7k="https://7k.bet.br/games/pgsoft/lucky-neko">Lucky Neko</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/sugar-rush-1000" data-vera="https://vera.bet.br/games/pragmaticplay/sugar-rush-1000" data-7k="https://7k.bet.br/games/pragmaticplay/sugar-rush-1000">Sugar Rush 1000</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/super-7s" data-vera="https://vera.bet.br/games/pragmaticplay/super-7s" data-7k="https://7k.bet.br/games/pragmaticplay/super-7s">Super 7s</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/spribe/hilo" data-vera="https://vera.bet.br/games/spribe/hilo" data-7k="https://7k.bet.br/games/spribe/hilo">HiLo</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/gates-of-olympus-super-scatter" data-vera="https://vera.bet.br/games/pragmaticplay/gates-of-olympus-super-scatter" data-7k="https://7k.bet.br/games/pragmaticplay/gates-of-olympus-super-scatter">Gates Olympus Super</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/diamond-strike" data-vera="https://vera.bet.br/games/pragmaticplay/diamond-strike" data-7k="https://7k.bet.br/games/pragmaticplay/diamond-strike">Diamond Strike</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/live-mega-wheel" data-vera="https://vera.bet.br/games/pragmaticplay/live-mega-wheel" data-7k="https://7k.bet.br/games/pragmaticplay/live-mega-wheel">Mega Wheel</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/dragon-hatch-2" data-vera="https://vera.bet.br/games/pgsoft/dragon-hatch-2" data-7k="https://7k.bet.br/games/pgsoft/dragon-hatch-2">Dragon Hatch 2</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/the-great-icescape" data-vera="https://vera.bet.br/games/pgsoft/the-great-icescape" data-7k="https://7k.bet.br/games/pgsoft/the-great-icescape">Great Icescape</button>
+        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/dragon-tiger-luck" data-vera="https://vera.bet.br/games/pgsoft/dragon-tiger-luck" data-7k="https://7k.bet.br/games/pgsoft/dragon-tiger-luck">Dragon Tiger Luck</button>
+    </div>
+
+    <script>
+        // PLATAFORMA PADRÃO ALTERADA PARA '7k'
+        let currentPlatform = '7k';
+        let currentActiveButton = null;
+
+        function changePlatform(platform) {
+            currentPlatform = platform;
+            
+            document.querySelectorAll('.platform-btn').forEach(btn => {
+                const btnPlatform = btn.textContent.replace('.bet.br', '').toLowerCase().trim();
+                btn.classList.toggle('active', btnPlatform === platform);
+            });
+        }
+
+        function openGame(button, event) {
+            event.preventDefault();
+            
+            if (currentActiveButton) {
+                currentActiveButton.classList.remove('active');
+            }
+            
+            button.classList.add('active');
+            currentActiveButton = button;
+            
+            const url = button.getAttribute(`data-${currentPlatform}`);
+            
+            if (url) {
+                window.open(url, '_blank');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.game-btn').forEach(button => {
+                button.addEventListener('click', (e) => openGame(button, e));
+            });
+        });
+    </script>
 </body>
 </html>
