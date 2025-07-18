@@ -1,215 +1,212 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogos de Cassino - Multiplataforma</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            position: relative;
-            min-height: 100vh;
-            color: white;
-        }
-        
-        /* Container do vídeo de fundo */
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .video-background video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.7;
-        }
-        
-        /* Sobreposição escura para melhor legibilidade */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: -1;
-        }
-        
-        .content {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        h1 {
-            color: white;
-            text-align: center;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        .platform-selector {
-            text-align: center;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        
-        .platform-btn {
-            background-color: rgba(52, 152, 219, 0.8);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s;
-            min-width: 120px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .platform-btn:hover {
-            background-color: rgba(41, 128, 185, 0.9);
-            transform: translateY(-2px);
-        }
-        
-        .platform-btn.active {
-            background-color: rgba(231, 76, 60, 0.9);
-            font-weight: bold;
-            transform: scale(1.05);
-        }
-        
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .game-btn {
-            background-color: rgba(52, 152, 219, 0.8);
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .game-btn:hover {
-            background-color: rgba(41, 128, 185, 0.9);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
-        .game-btn.active {
-            background-color: rgba(231, 76, 60, 0.9);
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(231, 76, 60, 0.6);
-        }
-        
-        .game-btn.active::after {
-            content: "✓";
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #27ae60;
-            color: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            z-index: 2;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jogos de Cassino - Multiplataforma</title>
+  <style>
+    /* Estilo base */
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+      position: relative;
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Vídeo de fundo */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .video-background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.7;
+    }
+
+    /* Sobreposição escura para legibilidade */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    /* Conteúdo sobre o vídeo */
+    h1 {
+      color: white;
+      text-align: center;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+
+    .platform-selector {
+      text-align: center;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .platform-btn {
+      background-color: rgba(52, 152, 219, 0.9);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s;
+      min-width: 120px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .platform-btn.active {
+      background-color: rgba(231, 76, 60, 0.9);
+      font-weight: bold;
+      transform: scale(1.05);
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .game-btn {
+      background-color: rgba(52, 152, 219, 0.9);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .game-btn:hover {
+      background-color: rgba(41, 128, 185, 0.9);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .game-btn.active {
+      background-color: rgba(231, 76, 60, 0.9);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(231, 76, 60, 0.6);
+    }
+
+    .game-btn.active::after {
+      content: "✓";
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #27ae60;
+      color: white;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      z-index: 2;
+    }
+  </style>
 </head>
 <body>
-    <!-- Vídeo de fundo local -->
-    <div class="video-background">
-        <video autoplay muted loop playsinline>
-            <source src="assets/videos/background.mp4" type="video/mp4">
-            Seu navegador não suporta vídeos HTML5.
-        </video>
-    </div>
-    
-    <!-- Sobreposição escura para melhor legibilidade -->
-    <div class="overlay"></div>
-    
-    <!-- Conteúdo principal -->
-    <div class="content">
-        <h1>Jogos de Cassino</h1>
-        
-        <!-- BOTÕES REORDENADOS (7K > CASSINO > VERA) -->
-        <div class="platform-selector">
-            <button class="platform-btn active" onclick="changePlatform('7k')">7k.bet.br</button>
-            <button class="platform-btn" onclick="changePlatform('cassino')">Cassino.bet.br</button>
-            <button class="platform-btn" onclick="changePlatform('vera')">Vera.bet.br</button>
-        </div>
-        
-        <!-- [MANTER TODA A LISTA DE JOGOS AQUI] -->
-        <!-- ... (todos os 46 botões de jogos permanecem iguais) ... -->
-    </div>
 
-    <script>
-        // PLATAFORMA PADRÃO ALTERADA PARA '7k'
-        let currentPlatform = '7k';
-        let currentActiveButton = null;
+  <!-- Vídeo de fundo -->
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="https://raw.githubusercontent.com/Dannmrx/testedejogos/main/assets/videos/background.mp4" type="video/mp4" />
+      Seu navegador não suporta vídeos HTML5.
+    </video>
+  </div>
 
-        function changePlatform(platform) {
-            currentPlatform = platform;
-            
-            document.querySelectorAll('.platform-btn').forEach(btn => {
-                const btnPlatform = btn.textContent.replace('.bet.br', '').toLowerCase().trim();
-                btn.classList.toggle('active', btnPlatform === platform);
-            });
-        }
+  <!-- Sobreposição escura para melhor contraste -->
+  <div class="overlay"></div>
 
-        function openGame(button, event) {
-            event.preventDefault();
-            
-            if (currentActiveButton) {
-                currentActiveButton.classList.remove('active');
-            }
-            
-            button.classList.add('active');
-            currentActiveButton = button;
-            
-            const url = button.getAttribute(`data-${currentPlatform}`);
-            
-            if (url) {
-                window.open(url, '_blank');
-            }
-        }
+  <h1>Jogos de Cassino</h1>
 
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.game-btn').forEach(button => {
-                button.addEventListener('click', (e) => openGame(button, e));
-            });
-        });
-    </script>
+  <div class="platform-selector">
+    <button class="platform-btn active" onclick="changePlatform('7k')">7k.bet.br</button>
+    <button class="platform-btn" onclick="changePlatform('cassino')">Cassino.bet.br</button>
+    <button class="platform-btn" onclick="changePlatform('vera')">Vera.bet.br</button>
+  </div>
+
+  <div class="game-grid">
+    <!-- seus botões de jogos aqui -->
+    <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/fortune-rabbit" data-vera="https://vera.bet.br/games/pgsoft/fortune-rabbit" data-7k="https://7k.bet.br/games/pgsoft/fortune-rabbit">Fortune Rabbit</button>
+    <button class="game-btn" data-cassino="https://cassino.bet.br/games/spribe/aviator" data-vera="https://vera.bet.br/games/spribe/aviator" data-7k="https://7k.bet.br/games/spribe/aviator">Aviator</button>
+    <!-- ... outros jogos ... -->
+  </div>
+
+  <script>
+    let currentPlatform = '7k';
+    let currentActiveButton = null;
+
+    function changePlatform(platform) {
+      currentPlatform = platform;
+
+      document.querySelectorAll('.platform-btn').forEach(btn => {
+        const btnPlatform = btn.textContent.replace('.bet.br', '').toLowerCase().trim();
+        btn.classList.toggle('active', btnPlatform === platform);
+      });
+    }
+
+    function openGame(button, event) {
+      event.preventDefault();
+
+      if (currentActiveButton) {
+        currentActiveButton.classList.remove('active');
+      }
+
+      button.classList.add('active');
+      currentActiveButton = button;
+
+      const url = button.getAttribute(`data-${currentPlatform}`);
+
+      if (url) {
+        window.open(url, '_blank');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.game-btn').forEach(button => {
+        button.addEventListener('click', (e) => openGame(button, e));
+      });
+    });
+  </script>
 </body>
 </html>
