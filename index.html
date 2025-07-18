@@ -1,141 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Lista de testes - 7K</title>
+  <meta charset="UTF-8" />
+  <title>Lista de Testes - 7K</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: white;
-      padding: 20px;
-      position: relative;
-      z-index: 1;
+      padding: 0;
+      box-sizing: border-box;
     }
-    body::before {
-      content: "";
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow-y: auto;
+      color: white;
+    }
+    #bg-video {
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('cassino.mp4') no-repeat center center / cover;
-      z-index: -2;
-      filter: blur(6px) brightness(0.5);
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      filter: blur(4px) brightness(0.5);
+    }
+    .container {
+      position: relative;
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.6);
+      max-width: 800px;
+      margin: auto;
+      border-radius: 12px;
+      margin-top: 40px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
     }
     h1 {
-      color: #ffcc00;
-      text-shadow: 1px 1px 2px black;
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-align: center;
     }
     ul {
       list-style: none;
       padding: 0;
     }
     li {
-      margin: 8px 0;
+      margin: 10px 0;
     }
     a {
-      color: white;
-      text-decoration: none;
-      font-size: 17px;
-      padding: 10px 16px;
-      border: 2px solid #ffcc00;
-      border-radius: 8px;
       display: inline-block;
-      transition: 0.3s;
-      background-color: rgba(0,0,0,0.4);
+      padding: 10px 16px;
+      background: #ffcc00;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background 0.3s;
     }
     a:hover {
-      background-color: #ffcc00;
-      color: black;
-      font-weight: bold;
-    }
-    .highlight {
-      background-color: #ffd700 !important;
-      color: black !important;
-      font-weight: bold;
-    }
-    video#bgvid {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -3;
-      filter: blur(5px) brightness(0.5);
+      background: #ffdf4d;
     }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const links = document.querySelectorAll('a');
-      const lastVisited = localStorage.getItem('lastVisited');
-
-      links.forEach(link => {
-        link.addEventListener('click', () => {
-          localStorage.setItem('lastVisited', link.href);
-        });
-
-        if (link.href === lastVisited) {
-          link.classList.add('highlight');
-        }
-      });
-    });
-  </script>
 </head>
 <body>
-  <video autoplay muted loop id="bgvid">
-    <source src="cassino.mp4" type="video/mp4">
+  <video autoplay muted loop id="bg-video">
+    <source src="https://cdn.pixabay.com/vimeo/456444522/casino-57133.mp4?width=1280&hash=455c121eeb550396416168c62a89e46e7d6cfc48" type="video/mp4">
+    Seu navegador não suporta vídeo em HTML5.
   </video>
 
-  <h1>Jogos para testar (7K.bet)</h1>
-  <ul>
-    <li><a href="https://7k.bet.br/games/pgsoft/fortune-rabbit">Fortune Rabbit</a></li>
-    <li><a href="https://7k.bet.br/games/spribe/aviator">Aviator</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/fortune-tiger">Fortune Tiger</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/fortune-dragon">Fortune Dragon</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/fortune-ox">Fortune Ox</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/bac-bo">Bac Bo</a></li>
-    <li><a href="https://7k.bet.br/games/spribe/mines">Mines</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/fortune-snake">Fortune Snake</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/tigre-sortudo">Tigre Sortudo</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/roleta-brasileira">Roleta Brasileira</a></li>
-    <li><a href="https://7k.bet.br/games/spribe/aviator">Aviator Crash</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/fortune-mouse">Fortune Mouse</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/roleta-ao-vivo">Roleta Ao Vivo</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/touro-sortudo">Touro Sortudo</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/gates-of-olympus">Gates of Olympus</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/pinata-wins">Pinata Wins</a></li>
-    <li><a href="https://7k.bet.br/games/smartsoft/jetx">JetX</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/cash-mania">Cash Mania</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/dragon-hatch">Dragon Hatch</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/wild-bounty-showdown">Wild Bounty Showdown</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/jokers-jewels">Joker's Jewels</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/ratinho-sortudo">Ratinho Sortudo</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/spaceman">Live - Spaceman</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/tigre-sortudo-1000">Tigre Sortudo 1000</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/auto-roulette-vip">Auto-Roulette VIP</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/sweet-bonanza">Sweet Bonanza</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/crazy-time">Crazy Time</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/gates-of-olympus-1000">Gates of Olympus 1000</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/immersive-roulette">Immersive Roulette</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/wild-bandito">Wild Bandito</a></li>
-    <li><a href="https://7k.bet.br/games/tada/lucky-jaguar">Lucky Jaguar</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/football-studio">Football Studio</a></li>
-    <li><a href="https://7k.bet.br/games/playtech/adventures-beyond-wonderland-live">Adventures Beyond Wonderland Live</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/big-bass-splash">Big Bass Splash</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/sweet-bonanza-1000">Sweet Bonanza 1000</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/midas-fortune">Midas Fortune</a></li>
-    <li><a href="https://7k.bet.br/games/evolution/xxxtreme-lightning-roulette">XXXtreme Lightning Roulette</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/master-joker">Master Joker</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/double-fortune">Double Fortune</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/lucky-neko">Lucky Neko</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/sugar-rush-1000">Sugar Rush 1000</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/super-7s">Super 7s</a></li>
-    <li><a href="https://7k.bet.br/games/spribe/hilo">Hilo</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/gates-of-olympus-super-scatter">Gates of Olympus Super Scatter</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/diamond-strike">Diamond Strike</a></li>
-    <li><a href="https://7k.bet.br/games/pragmaticplay/live-mega-wheel">Live - Mega Wheel</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/dragon-hatch-2">Dragon Hatch 2</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/the-great-icescape">The Great Icescape</a></li>
-    <li><a href="https://7k.bet.br/games/pgsoft/dragon-tiger-luck">Dragon Tiger Luck</a></li>
-  </ul>
+  <div class="container">
+    <h1>Jogos para Testar (7K.bet)</h1>
+    <ul>
+      <li><a href="https://7k.bet.br/games/pgsoft/fortune-rabbit">Fortune Rabbit</a></li>
+      <li><a href="https://7k.bet.br/games/spribe/aviator">Aviator</a></li>
+      <li><a href="https://7k.bet.br/games/pgsoft/fortune-tiger">Fortune Tiger</a></li>
+      <li><a href="https://7k.bet.br/games/pgsoft/fortune-dragon">Fortune Dragon</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/fortune-ox">Fortune Ox</a></li>
+      <li><a href="https://7k.bet.br/games/evolution/bac-bo">Bac Bo</a></li>
+      <li><a href="https://7k.bet.br/games/spribe/mines">Mines</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/fortune-snake">Fortune Snake</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/tigre-sortudo">Tigre Sortudo</a></li>
+      <li><a href="https://7k.bet.br/games/evolution/roleta-brasileira">Roleta Brasileira</a></li>
+      <li><a href="https://7k.bet.br/games/spribe/aviator">Aviator Crash</a></li>
+      <li><a href="https://7k.bet.br/games/pgsoft/fortune-mouse">Fortune Mouse</a></li>
+      <li><a href="https://7k.bet.br/games/evolution/roleta-ao-vivo">Roleta Ao Vivo</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/touro-sortudo">Touro Sortudo</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/gates-of-olympus">Gates of Olympus</a></li>
+      <li><a href="https://7k.bet.br/games/pgsoft/pinata-wins">Pinata Wins</a></li>
+      <li><a href="https://7k.bet.br/games/smartsoft/jetx">JetX</a></li>
+      <li><a href="https://7k.bet.br/games/pgsoft/cash-mania">Cash Mania</a></li>
+      <li><a href="https://7k.bet.br/games/pgsoft/dragon-hatch">Dragon Hatch</a></li>
+      <li><a href="https://7k.bet.br/games/pgsoft/wild-bounty-showdown">Wild Bounty Showdown</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/jokers-jewels">Joker's Jewels</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/ratinho-sortudo">Ratinho Sortudo</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/spaceman">Live - Spaceman</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/tigre-sortudo-1000">Tigre Sortudo 1000</a></li>
+      <li><a href="https://7k.bet.br/games/evolution/auto-roulette-vip">Auto-Roulette VIP</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/sweet-bonanza">Sweet Bonanza</a></li>
+      <li><a href="https://7k.bet.br/games/evolution/crazy-time">Crazy Time</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/gates-of-olympus-1000">Gates of Olympus 1000</a></li>
+      <li><a href="https://7k.bet.br/games/evolution/immersive-roulette">Immersive Roulette</a></li>
+      <li><a href="https://7k.bet.br/games/pgsoft/wild-bandito">Wild Bandito</a></li>
+      <li><a href="https://7k.bet.br/games/tada/lucky-jaguar">Lucky Jaguar</a></li>
+      <li><a href="https://7k.bet.br/games/evolution/football-studio">Football Studio</a></li>
+      <li><a href="https://7k.bet.br/games/playtech/adventures-beyond-wonderland-live">Adventures Beyond Wonderland Live</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/big-bass-splash">Big Bass Splash</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/sweet-bonanza-1000">Sweet Bonanza 1000</a></li>
+      <li><a href="https://7k.bet.br/games/pgsoft/midas-fortune">Midas Fortune</a></li>
+      <li><a href="https://7k.bet.br/games/evolution/xxxtreme-lightning-roulette">XXXtreme Lightning Roulette</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/master-joker">Master Joker</a></li>
+      <li><a href="https://7k.bet.br/games/pgsoft/double-fortune">Double Fortune</a></li>
+      <li><a href="https://7k.bet.br/games/pgsoft/lucky-neko">Lucky Neko</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/sugar-rush-1000">Sugar Rush 1000</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/super-7s">Super 7s</a></li>
+      <li><a href="https://7k.bet.br/games/spribe/hilo">Hilo</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/gates-of-olympus-super-scatter">Gates of Olympus Super Scatter</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/diamond-strike">Diamond Strike</a></li>
+      <li><a href="https://7k.bet.br/games/pragmaticplay/live-mega-wheel">Live - Mega Wheel</a></li>
+      <li><a href="https://7k.bet.br/games/pgsoft/dragon-hatch-2">Dragon Hatch 2</a></li>
+      <li><a href="https://7k.bet.br/games/pgsoft/the-great-icescape">The Great Icescape</a></li>
+      <li><a href="https://7k.bet.br/games/pgsoft/dragon-tiger-luck">Dragon Tiger Luck</a></li>
+    </ul>
+  </div>
 </body>
 </html>
