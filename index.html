@@ -4,13 +4,64 @@
   <meta charset="UTF-8">
   <title>Lista de testes - 7K</title>
   <style>
-    body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
-    h1 { color: #333; }
-    ul { list-style: none; padding: 0; }
-    li { margin: 8px 0; }
-    a { color: #007bff; text-decoration: none; font-size: 17px; padding: 5px 10px; border-radius: 5px; display: inline-block; }
-    a:hover { background-color: #e0e0e0; }
-    .highlight { background-color: yellow; font-weight: bold; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('cassino.mp4') no-repeat center center / cover;
+      z-index: -2;
+      filter: blur(6px) brightness(0.5);
+    }
+    h1 {
+      color: #ffcc00;
+      text-shadow: 1px 1px 2px black;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin: 8px 0;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+      padding: 10px 16px;
+      border: 2px solid #ffcc00;
+      border-radius: 8px;
+      display: inline-block;
+      transition: 0.3s;
+      background-color: rgba(0,0,0,0.4);
+    }
+    a:hover {
+      background-color: #ffcc00;
+      color: black;
+      font-weight: bold;
+    }
+    .highlight {
+      background-color: #ffd700 !important;
+      color: black !important;
+      font-weight: bold;
+    }
+    video#bgvid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -3;
+      filter: blur(5px) brightness(0.5);
+    }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -30,6 +81,10 @@
   </script>
 </head>
 <body>
+  <video autoplay muted loop id="bgvid">
+    <source src="cassino.mp4" type="video/mp4">
+  </video>
+
   <h1>Jogos para testar (7K.bet)</h1>
   <ul>
     <li><a href="https://7k.bet.br/games/pgsoft/fortune-rabbit">Fortune Rabbit</a></li>
