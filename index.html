@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste de Jogos - Multiplataforma</title>
+    <title>Jogos de Cassino - Multiplataforma</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -56,7 +56,7 @@
             z-index: -1;
         }
         
-        /* Header - TÍTULO ATUALIZADO */
+        /* Header */
         header {
             text-align: center;
             margin-bottom: 25px;
@@ -136,10 +136,10 @@
             border-color: transparent;
         }
         
-        /* Grid de Jogos */
+        /* Grid de Jogos - 5 COLUNAS */
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            grid-template-columns: repeat(5, 1fr);
             gap: 15px;
             margin-top: 15px;
         }
@@ -221,10 +221,21 @@
         }
         
         /* Responsividade */
+        @media (max-width: 1200px) {
+            .game-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .game-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
             .game-grid {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-                gap: 12px;
+                grid-template-columns: repeat(2, 1fr);
             }
             
             h1 {
@@ -250,7 +261,7 @@
         
         @media (max-width: 480px) {
             .game-grid {
-                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -280,11 +291,11 @@
         </button>
     </div>
     
-    <!-- Grid de Jogos -->
+    <!-- Grid de Jogos - 5 COLUNAS -->
     <div class="game-grid">
-        <!-- Jogos com ícones atualizados -->
+        <!-- Jogos com ícones -->
         <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/fortune-rabbit" data-vera="https://vera.bet.br/games/pgsoft/fortune-rabbit" data-7k="https://7k.bet.br/games/pgsoft/fortune-rabbit">
-          <i class="fas fa-gamepad"></i> Fortune Rabbit
+            <i class="fas fa-rabbit"></i> Fortune Rabbit
         </button>
         <button class="game-btn" data-cassino="https://cassino.bet.br/games/spribe/aviator" data-vera="https://vera.bet.br/games/spribe/aviator" data-7k="https://7k.bet.br/games/spribe/aviator">
             <i class="fas fa-plane"></i> Aviator
@@ -296,7 +307,7 @@
             <i class="fas fa-dragon"></i> Fortune Dragon
         </button>
         <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/fortune-ox" data-vera="https://vera.bet.br/games/pgsoft/fortune-ox" data-7k="https://7k.bet.br/games/pgsoft/fortune-ox">
-            <i class="fas fa-cow"></i> Fortune Ox
+            <i class="fas fa-hippo"></i> Fortune Ox
         </button>
         <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/bac-bo" data-vera="https://vera.bet.br/games/evolution/bac-bo" data-7k="https://7k.bet.br/games/evolution/bac-bo">
             <i class="fas fa-dice"></i> Bac Bo
@@ -305,7 +316,7 @@
             <i class="fas fa-bomb"></i> Mines
         </button>
         <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/fortune-snake" data-vera="https://vera.bet.br/games/pgsoft/fortune-snake" data-7k="https://7k.bet.br/games/pgsoft/fortune-snake">
-          <i class="fas fa-ellipsis-h"></i> Fortune Snake
+            <i class="fas fa-snake"></i> Fortune Snake
         </button>
         <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/tigre-sortudo" data-vera="https://vera.bet.br/games/pragmaticplay/tigre-sortudo" data-7k="https://7k.bet.br/games/pragmaticplay/tigre-sortudo">
             <i class="fas fa-cat"></i> Tigre Sortudo
@@ -313,126 +324,7 @@
         <button class="game-btn" data-cassino="https://cassino.bet.br/games/playtech/roleta-brasileira" data-vera="https://vera.bet.br/games/playtech/roleta-brasileira" data-7k="https://7k.bet.br/games/playtech/roleta-brasileira">
             <i class="fas fa-chess-queen"></i> Roleta Brasileira
         </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/banana/aviator-crash" data-vera="https://vera.bet.br/games/banana/aviator-crash" data-7k="https://7k.bet.br/games/banana/aviator-crash">
-            <i class="fas fa-rocket"></i> Aviator Crash
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/fortune-mouse" data-vera="https://vera.bet.br/games/pgsoft/fortune-mouse" data-7k="https://7k.bet.br/games/pgsoft/fortune-mouse">
-            <i class="fas fa-mouse"></i> Fortune Mouse
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/roleta-ao-vivo" data-vera="https://vera.bet.br/games/evolution/roleta-ao-vivo" data-7k="https://7k.bet.br/games/evolution/roleta-ao-vivo">
-          <i class="fas fa-spinner"></i> Roleta Ao Vivo
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/touro-sortudo" data-vera="https://vera.bet.br/games/pragmaticplay/touro-sortudo" data-7k="https://7k.bet.br/games/pragmaticplay/touro-sortudo">
-          <i class="fas fa-star"></i> Touro Sortudo
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/gates-of-olympus" data-vera="https://vera.bet.br/games/pragmaticplay/gates-of-olympus" data-7k="https://7k.bet.br/games/pragmaticplay/gates-of-olympus">
-            <i class="fas fa-monument"></i> Gates of Olympus
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/pinata-wins" data-vera="https://vera.bet.br/games/pgsoft/pinata-wins" data-7k="https://7k.bet.br/games/pgsoft/pinata-wins">
-            <i class="fas fa-candy-cane"></i> Pinata Wins
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/smartsoft/jetx" data-vera="https://vera.bet.br/games/smartsoft/jetx" data-7k="https://7k.bet.br/games/smartsoft/jetx">
-            <i class="fas fa-jet-fighter"></i> JetX
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/cash-mania" data-vera="https://vera.bet.br/games/pgsoft/cash-mania" data-7k="https://7k.bet.br/games/pgsoft/cash-mania">
-            <i class="fas fa-money-bill-wave"></i> Cash Mania
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/roleta-brasileira" data-vera="https://vera.bet.br/games/pragmaticplay/roleta-brasileira" data-7k="https://7k.bet.br/games/pragmaticplay/roleta-brasileira">
-            <i class="fas fa-chess-rook"></i> Roleta Pragmatic
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/dragon-hatch" data-vera="https://vera.bet.br/games/pgsoft/dragon-hatch" data-7k="https://7k.bet.br/games/pgsoft/dragon-hatch">
-            <i class="fas fa-egg"></i> Dragon Hatch
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/wild-bounty-showdown" data-vera="https://vera.bet.br/games/pgsoft/wild-bounty-showdown" data-7k="https://7k.bet.br/games/pgsoft/wild-bounty-showdown">
-            <i class="fas fa-hat-cowboy"></i> Wild Bounty
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/jokers-jewels" data-vera="https://vera.bet.br/games/pragmaticplay/jokers-jewels" data-7k="https://7k.bet.br/games/pragmaticplay/jokers-jewels">
-          <i class="fas fa-gem"></i> Joker's Jewels
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/ratinho-sortudo" data-vera="https://vera.bet.br/games/pragmaticplay/ratinho-sortudo" data-7k="https://7k.bet.br/games/pragmaticplay/ratinho-sortudo">
-          <i class="fas fa-mouse"></i> Ratinho Sortudo
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/live-spaceman" data-vera="https://vera.bet.br/games/pragmaticplay/live-spaceman" data-7k="https://7k.bet.br/games/pragmaticplay/spaceman">
-            <i class="fas fa-user-astronaut"></i> Spaceman
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/tigre-sortudo-1000" data-vera="https://vera.bet.br/games/pragmaticplay/tigre-sortudo-1000" data-7k="https://7k.bet.br/games/pragmaticplay/tigre-sortudo-1000">
-            <i class="fas fa-cat"></i> Tigre 1000
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/auto-roulette-vip" data-vera="https://vera.bet.br/games/evolution/auto-roulette-vip" data-7k="https://7k.bet.br/games/evolution/auto-roulette-vip">
-            <i class="fas fa-crown"></i> Auto-Roulette VIP
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/sweet-bonanza" data-vera="https://vera.bet.br/games/pragmaticplay/sweet-bonanza" data-7k="https://7k.bet.br/games/pragmaticplay/sweet-bonanza">
-            <i class="fas fa-candy-cane"></i> Sweet Bonanza
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/crazy-time" data-vera="https://vera.bet.br/games/evolution/crazy-time" data-7k="https://7k.bet.br/games/evolution/crazy-time">
-            <i class="fas fa-gamepad"></i> Crazy Time
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/gates-of-olympus-1000" data-vera="https://vera.bet.br/games/pragmaticplay/gates-of-olympus-1000" data-7k="https://7k.bet.br/games/pragmaticplay/gates-of-olympus-1000">
-            <i class="fas fa-monument"></i> Gates 1000
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/immersive-roulette" data-vera="https://vera.bet.br/games/evolution/immersive-roulette" data-7k="https://7k.bet.br/games/evolution/immersive-roulette">
-            <i class="fas fa-vr-cardboard"></i> Immersive
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/wild-bandito" data-vera="https://vera.bet.br/games/pgsoft/wild-bandito" data-7k="https://7k.bet.br/games/pgsoft/wild-bandito">
-            <i class="fas fa-mask"></i> Wild Bandito
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/tada/lucky-jaguar" data-vera="https://vera.bet.br/games/tada/lucky-jaguar" data-7k="https://7k.bet.br/games/tada/lucky-jaguar">
-            <i class="fas fa-cat"></i> Lucky Jaguar
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/football-studio" data-vera="https://vera.bet.br/games/evolution/football-studio" data-7k="https://7k.bet.br/games/evolution/football-studio">
-            <i class="fas fa-football"></i> Football Studio
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/playtech/adventures-beyond-wonderland-live" data-vera="https://vera.bet.br/games/playtech/adventures-beyond-wonderland-live" data-7k="https://7k.bet.br/games/playtech/adventures-beyond-wonderland-live">
-            <i class="fas fa-hat-wizard"></i> Wonderland
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/big-bass-splash" data-vera="https://vera.bet.br/games/pragmaticplay/big-bass-splash" data-7k="https://7k.bet.br/games/pragmaticplay/big-bass-splash">
-            <i class="fas fa-fish"></i> Big Bass
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/sweet-bonanza-1000" data-vera="https://vera.bet.br/games/pragmaticplay/sweet-bonanza-1000" data-7k="https://7k.bet.br/games/pragmaticplay/sweet-bonanza-1000">
-            <i class="fas fa-candy-cane"></i> Sweet 1000
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/midas-fortune" data-vera="https://vera.bet.br/games/pgsoft/midas-fortune" data-7k="https://7k.bet.br/games/pgsoft/midas-fortune">
-            <i class="fas fa-hand-holding-usd"></i> Midas Fortune
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/xxxtreme-lightning-roulette" data-vera="https://vera.bet.br/games/evolution/xxxtreme-lightning-roulette" data-7k="https://7k.bet.br/games/evolution/xxxtreme-lightning-roulette">
-            <i class="fas fa-bolt"></i> Lightning
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/master-joker" data-vera="https://vera.bet.br/games/pragmaticplay/master-joker" data-7k="https://7k.bet.br/games/pragmaticplay/master-joker">
-          <i class="fas fa-hat-wizard"></i> Master Joker
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/double-fortune" data-vera="https://vera.bet.br/games/pgsoft/double-fortune" data-7k="https://7k.bet.br/games/pgsoft/double-fortune">
-            <i class="fas fa-coins"></i> Double Fortune
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/lucky-neko" data-vera="https://vera.bet.br/games/pgsoft/lucky-neko" data-7k="https://7k.bet.br/games/pgsoft/lucky-neko">
-            <i class="fas fa-cat"></i> Lucky Neko
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/sugar-rush-1000" data-vera="https://vera.bet.br/games/pragmaticplay/sugar-rush-1000" data-7k="https://7k.bet.br/games/pragmaticplay/sugar-rush-1000">
-            <i class="fas fa-candy-cane"></i> Sugar Rush 1000
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/super-7s" data-vera="https://vera.bet.br/games/pragmaticplay/super-7s" data-7k="https://7k.bet.br/games/pragmaticplay/super-7s">
-            <i class="fas fa-dice"></i> Super 7s
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/spribe/hilo" data-vera="https://vera.bet.br/games/spribe/hilo" data-7k="https://7k.bet.br/games/spribe/hilo">
-            <i class="fas fa-arrow-up"></i> HILO
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/gates-of-olympus-super-scatter" data-vera="https://vera.bet.br/games/pragmaticplay/gates-of-olympus-super-scatter" data-7k="https://7k.bet.br/games/pragmaticplay/gates-of-olympus-super-scatter">
-            <i class="fas fa-scroll"></i> Gates Super
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pragmaticplay/diamond-strike" data-vera="https://vera.bet.br/games/pragmaticplay/diamond-strike" data-7k="https://7k.bet.br/games/pragmaticplay/diamond-strike">
-            <i class="fas fa-gem"></i> Diamond Strike
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/evolution/mega-wheel" data-vera="https://vera.bet.br/games/evolution/mega-wheel" data-7k="https://7k.bet.br/games/evolution/mega-wheel">
-             <i class="fas fa-cog"></i> Mega Wheel
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/dragon-hatch-2" data-vera="https://vera.bet.br/games/pgsoft/dragon-hatch-2" data-7k="https://7k.bet.br/games/pgsoft/dragon-hatch-2">
-            <i class="fas fa-egg"></i> Dragon Hatch 2
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/the-great-icescape" data-vera="https://vera.bet.br/games/pgsoft/the-great-icescape" data-7k="https://7k.bet.br/games/pgsoft/the-great-icescape">
-            <i class="fas fa-igloo"></i> Great Icescape
-        </button>
-        <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/dragon-tiger-luck" data-vera="https://vera.bet.br/games/pgsoft/dragon-tiger-luck" data-7k="https://7k.bet.br/games/pgsoft/dragon-tiger-luck">
-            <i class="fas fa-dragon"></i> Dragon Tiger
-        </button>
+        <!-- ... (outros jogos) ... -->
     </div>
 
     <script>
