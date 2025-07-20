@@ -136,10 +136,10 @@
             border-color: transparent;
         }
         
-        /* Grid de Jogos */
+        /* Grid de Jogos - ATUALIZADO PARA 5 COLUNAS */
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            grid-template-columns: repeat(5, 1fr);
             gap: 15px;
             margin-top: 15px;
         }
@@ -221,9 +221,21 @@
         }
         
         /* Responsividade */
+        @media (max-width: 1200px) {
+            .game-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .game-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
             .game-grid {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
             }
             
@@ -250,7 +262,12 @@
         
         @media (max-width: 480px) {
             .game-grid {
-                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+                grid-template-columns: 1fr;
+            }
+            
+            .platform-selector {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -280,7 +297,7 @@
         </button>
     </div>
     
-    <!-- Grid de Jogos -->
+    <!-- Grid de Jogos - AGORA COM 5 COLUNAS -->
     <div class="game-grid">
         <!-- Jogos com ícones atualizados -->
         <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/fortune-rabbit" data-vera="https://vera.bet.br/games/pgsoft/fortune-rabbit" data-7k="https://7k.bet.br/games/pgsoft/fortune-rabbit">
