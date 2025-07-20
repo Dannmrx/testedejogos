@@ -1,137 +1,227 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogos de Cassino - Multiplataforma</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            color: white;
-        }
-        
-        /* Video de fundo */
-        #video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            opacity: 0.7;
-        }
-        
-        /* Overlay escuro para melhor contraste */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: -1;
-        }
-        
-        h1 {
-            color: #fff;
-            text-align: center;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-        .platform-selector {
-            text-align: center;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-        .platform-btn {
-            background-color: #3498db;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s;
-            min-width: 120px;
-        }
-        .platform-btn.active {
-            background-color: #e74c3c;
-            font-weight: bold;
-            transform: scale(1.05);
-        }
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .game-btn {
-            background-color: rgba(52, 152, 219, 0.9);
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .game-btn:hover {
-            background-color: rgba(41, 128, 185, 0.9);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-        }
-        .game-btn.active {
-            background-color: rgba(231, 76, 60, 0.9);
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(231, 76, 60, 0.8);
-        }
-        .game-btn.active::after {
-            content: "✓";
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #27ae60;
-            color: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            z-index: 2;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jogos de Cassino - Multiplataforma</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Vídeo de fundo */
+    #video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      opacity: 0.7;
+      filter: brightness(0.7) contrast(1.1);
+    }
+
+    /* Overlay escuro */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: -1;
+    }
+
+    /* Container principal */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px 80px;
+      text-align: center;
+      user-select: none;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 25px;
+      letter-spacing: 1.2px;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.85);
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Plataforma seletor */
+    .platform-selector {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .platform-btn {
+      background-color: #3498db;
+      border: none;
+      padding: 12px 26px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(52, 152, 219, 0.6);
+      transition: 
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+      min-width: 140px;
+      user-select: none;
+    }
+
+    .platform-btn:hover {
+      background-color: #2980b9;
+      box-shadow: 0 6px 14px rgba(41, 128, 185, 0.8);
+      transform: translateY(-3px);
+    }
+
+    .platform-btn.active {
+      background-color: #e74c3c;
+      box-shadow: 0 0 18px rgba(231, 76, 60, 0.9);
+      transform: scale(1.1);
+      font-weight: 700;
+      pointer-events: none;
+    }
+
+    /* Grid dos jogos */
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .game-btn {
+      background-color: rgba(52, 152, 219, 0.85);
+      border: 2px solid transparent;
+      border-radius: 12px;
+      padding: 16px 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+      transition: 
+        background-color 0.3s ease,
+        transform 0.25s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+      position: relative;
+      user-select: none;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .game-btn:hover {
+      background-color: rgba(41, 128, 185, 0.95);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.5);
+      border-color: #2980b9;
+      z-index: 1;
+    }
+
+    .game-btn.active {
+      background-color: rgba(231, 76, 60, 0.95);
+      transform: scale(1.08);
+      box-shadow: 0 0 20px rgba(231, 76, 60, 0.9);
+      border-color: #e74c3c;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Marca de seleção ✓ no botão ativo */
+    .game-btn.active::after {
+      content: "✓";
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #27ae60;
+      color: white;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 6px #27ae60;
+      user-select: none;
+    }
+
+    /* Scrollbar customizada para o container caso precise */
+    .game-grid::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .game-grid::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .game-grid::-webkit-scrollbar-thumb {
+      background-color: rgba(52, 152, 219, 0.7);
+      border-radius: 4px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .platform-btn {
+        min-width: 120px;
+        font-size: 1rem;
+        padding: 10px 18px;
+      }
+      .game-btn {
+        font-size: 0.9rem;
+        padding: 12px 8px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Video de fundo -->
-<video id="video-background" autoplay muted loop style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; opacity: 0.7;">
-  <source src="assets/videos/background.mp4" type="video/mp4">
-  Seu navegador não suporta vídeos HTML5.
-</video>
-<div class="overlay"></div>
-    
+
+  <!-- Vídeo de fundo -->
+  <video id="video-background" autoplay muted loop>
+    <source src="assets/videos/background.mp4" type="video/mp4" />
+    Seu navegador não suporta vídeo HTML5.
+  </video>
+
+  <!-- Overlay escura -->
+  <div class="overlay"></div>
+
+  <!-- Conteúdo principal -->
+  <div class="container">
+
     <h1>Jogos de Cassino</h1>
-    
-    <!-- BOTÕES REORDENADOS (7K > CASSINO > VERA) -->
+
+    <!-- Botões das plataformas -->
     <div class="platform-selector">
-        <button class="platform-btn active" onclick="changePlatform('7k')">7k.bet.br</button>
-        <button class="platform-btn" onclick="changePlatform('cassino')">Cassino.bet.br</button>
-        <button class="platform-btn" onclick="changePlatform('vera')">Vera.bet.br</button>
-    </div>
+      <button class="platform-btn active" onclick="changePlatform('7k')">7k.bet.br</button>
+      <button class="platform-btn" onclick="changePlatform('cassino')">Cassino.bet.br</button>
+      <button class="platform-btn" onclick="changePlatform('vera')">Vera.bet.br</button>
+       </div>
     
     <div class="game-grid">
         <!-- LISTA COMPLETA DE TODOS OS 46 JOGOS -->
@@ -187,49 +277,60 @@
         <button class="game-btn" data-cassino="https://cassino.bet.br/games/pgsoft/dragon-tiger-luck" data-vera="https://vera.bet.br/games/pgsoft/dragon-tiger-luck" data-7k="https://7k.bet.br/games/pgsoft/dragon-tiger-luck">Dragon Tiger Luck</button>
     </div>
 
-    <script>
-        // PLATAFORMA PADRÃO ALTERADA PARA '7k'
-        let currentPlatform = '7k';
-        let currentActiveButton = null;
+  <script>
+    // Plataforma padrão
+    let currentPlatform = '7k';
+    let currentActiveButton = null;
 
-        function changePlatform(platform) {
-            currentPlatform = platform;
-            
-            document.querySelectorAll('.platform-btn').forEach(btn => {
-                const btnPlatform = btn.textContent.replace('.bet.br', '').toLowerCase().trim();
-                btn.classList.toggle('active', btnPlatform === platform);
-            });
-        }
+    function changePlatform(platform) {
+      currentPlatform = platform;
 
-        function openGame(button, event) {
-            event.preventDefault();
-            
-            if (currentActiveButton) {
-                currentActiveButton.classList.remove('active');
-            }
-            
-            button.classList.add('active');
-            currentActiveButton = button;
-            
-            const url = button.getAttribute(`data-${currentPlatform}`);
-            
-            if (url) {
-                window.open(url, '_blank');
-            }
-        }
+      // Atualiza botões das plataformas
+      document.querySelectorAll('.platform-btn').forEach(btn => {
+        const btnPlatform = btn.textContent.replace('.bet.br', '').toLowerCase().trim();
+        btn.classList.toggle('active', btnPlatform === platform);
+      });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.game-btn').forEach(button => {
-                button.addEventListener('click', (e) => openGame(button, e));
-            });
-            
-            // Configura o vídeo de fundo para recomeçar se encontrar erro
-            const videoBg = document.getElementById('video-background');
-            videoBg.addEventListener('error', function() {
-                console.log('Erro ao carregar vídeo, tentando novamente...');
-                this.load();
-            });
-        });
-    </script>
+      // Reseta seleção dos jogos
+      if (currentActiveButton) {
+        currentActiveButton.classList.remove('active');
+        currentActiveButton = null;
+      }
+    }
+
+    function openGame(button, event) {
+      event.preventDefault();
+
+      if (currentActiveButton) {
+        currentActiveButton.classList.remove('active');
+      }
+
+      button.classList.add('active');
+      currentActiveButton = button;
+
+      const url = button.getAttribute(`data-${currentPlatform}`);
+
+      if (url) {
+        window.open(url, '_blank');
+      } else {
+        alert('URL não disponível para esta plataforma.');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Associa evento click a cada jogo
+      document.querySelectorAll('.game-btn').forEach(button => {
+        button.addEventListener('click', e => openGame(button, e));
+      });
+
+      // Tenta recarregar o vídeo em caso de erro
+      const videoBg = document.getElementById('video-background');
+      videoBg.addEventListener('error', function () {
+        console.log('Erro ao carregar vídeo, tentando novamente...');
+        this.load();
+      });
+    });
+  </script>
+
 </body>
 </html>
